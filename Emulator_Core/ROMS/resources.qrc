@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>48.ROM</file>
+        <file>clut.frag</file>
+        <file>clut.vert</file>
+        <file>display.vert</file>
+        <file>display.frag</file>
+        <file>snapload.v31</file>
+        <file>shock.sna</file>
+    </qresource>
+</RCC>
