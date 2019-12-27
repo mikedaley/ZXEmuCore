@@ -94,10 +94,10 @@ uint8_t ZXSpectrum48::coreIORead(uint16_t address)
         }
 
         // SPI - HexTank
-        if (address == spiPort)
-        {
-            return ZXSpectrum48::spi_read();
-        }
+//        if (address == spiPort)
+//        {
+//            return ZXSpectrum48::spi_read();
+//        }
         
 		// Retroleum Smart Card - HexTank
 		else if ((address & 0xfff1) == 0xfaf1)
@@ -184,10 +184,11 @@ void ZXSpectrum48::coreIOWrite(uint16_t address, uint8_t data)
     }
     
     // SPI - HexTank
-    if (address == spiPort)
-    {
-        return ZXSpectrum48::spi_write(data);
-    }
+//    if (address == spiPort)
+//    {
+//        return ZXSpectrum48::spi_write(data);
+//    }
+    
 	// Retroleum Smart Card - HexTank
 	else if ((address & 0xfff1) == 0xfaf1)
 	{

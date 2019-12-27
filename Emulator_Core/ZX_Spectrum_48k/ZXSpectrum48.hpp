@@ -35,8 +35,8 @@ public:
     static bool             opcodeCallback(uint8_t opcode, uint16_t address, void *param);
         
     // SPI
-    virtual void            spi_write(uint8_t data);
-    virtual uint8_t         spi_read();
+//    virtual void            spi_write(uint8_t data);
+//    virtual uint8_t         spi_read();
         
 };
 
