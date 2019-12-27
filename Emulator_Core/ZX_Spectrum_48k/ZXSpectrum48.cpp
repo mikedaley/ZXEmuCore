@@ -14,8 +14,8 @@
 // - Constants
 
 static const int cROM_SIZE = 16384;
-static const char *cDEFAULT_ROM = ":/48.ROM";
-static const char *cSMART_ROM = ":/snapload.v31";
+static const char *cDEFAULT_ROM = "48.ROM";
+static const char *cSMART_ROM = "snapload.v31";
 
 // SmartCard ROM and sundries
 static const uint8_t cFAFB_ROM_SWITCHOUT = 0x40;
@@ -92,13 +92,7 @@ uint8_t ZXSpectrum48::coreIORead(uint16_t address)
         {
             return audioAYReadData();
         }
-
-        // SPI - HexTank
-        if (address == spiPort)
-        {
-            return ZXSpectrum48::spi_read();
-        }
-        
+       
 		// Retroleum Smart Card - HexTank
 		else if ((address & 0xfff1) == 0xfaf1)
 		{
@@ -183,11 +177,6 @@ void ZXSpectrum48::coreIOWrite(uint16_t address, uint8_t data)
         specdrumDACValue = (data * 256) - 32768;
     }
     
-    // SPI - HexTank
-    if (address == spiPort)
-    {
-        return ZXSpectrum48::spi_write(data);
-    }
 	// Retroleum Smart Card - HexTank
 	else if ((address & 0xfff1) == 0xfaf1)
 	{

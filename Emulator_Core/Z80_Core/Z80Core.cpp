@@ -545,7 +545,7 @@ uint32_t CZ80Core::Debug_Disassemble(char *pStr, uint32_t StrLen, uint16_t addre
     }
 
     // Get the details we need
-    uint16_t start_address = address;
+    uint32_t start_address = address;
     const char *pDisassembleString = Debug_GetOpcodeDetails(address, data);
 
     // If we dont have a valid instruction - skip
