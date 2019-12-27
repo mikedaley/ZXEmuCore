@@ -460,9 +460,9 @@ bool ZXSpectrum::snapshotZ80LoadWithPath(const char *path)
         case 2:
         case 3:
             hardwareType = reinterpret_cast<uint8_t *>(&pFileBytes[34])[0];
-            uint32_t additionHeaderBlockLength = 0;
-            additionHeaderBlockLength = reinterpret_cast<uint32_t *>(&pFileBytes[30])[0];
-            uint32_t offset = 32 + additionHeaderBlockLength;
+            uint16_t additionHeaderBlockLength = 0;
+            additionHeaderBlockLength = reinterpret_cast<uint16_t *>(&pFileBytes[30])[0];
+            uint16_t offset = 32 + additionHeaderBlockLength;
 
             if ((version == 2 && (hardwareType == cZ80_V2_MACHINE_TYPE_128 || hardwareType == cZ80_V2_MACHINE_TYPE_128_IF1)) ||
                 (version == 3 && (hardwareType == cZ80_V3_MACHINE_TYPE_128 || hardwareType == cZ80_V3_MACHINE_TYPE_128_IF1 || hardwareType == cz80_V3_MACHINE_TYPE_128_MGT ||
