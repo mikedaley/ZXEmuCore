@@ -11,9 +11,9 @@
 
 #ifndef nullptr
 #ifdef __cplusplus
-#define NULL    0
-#else
-#define nullptr    ((void *)0)
+//#define NULL    0
+//#else
+//#define nullptr    ((void *)0)
 #endif
 #endif
 

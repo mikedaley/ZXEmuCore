@@ -14,8 +14,8 @@
 // - Constants
 
 static const int cROM_SIZE = 16384;
-static const char *cDEFAULT_ROM = ":/48.ROM";
-static const char *cSMART_ROM = ":/snapload.v31";
+static const char *cDEFAULT_ROM = "48.ROM";
+static const char *cSMART_ROM = "snapload.v31";
 
 // SmartCard ROM and sundries
 static const uint8_t cFAFB_ROM_SWITCHOUT = 0x40;

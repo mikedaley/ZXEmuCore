@@ -29,7 +29,7 @@ using namespace std;
 // - Base ZXSpectrum class
 
 typedef void (*Z80DebugOpCallback)(uint16_t address, uint8_t operation, void *param);
-typedef bool (*DebugOpCallbackBlock)(uint16_t address, uint8_t operation);
+typedef bool (^DebugOpCallbackBlock)(uint16_t address, uint8_t operation);
 
 typedef enum {
     eULAPlusPaletteGroup = 0,

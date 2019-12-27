@@ -144,13 +144,13 @@ void Debug::disassemble(uint16_t fromAddress, uint16_t bytes, bool hexFormat)
 {
     m_disassembly.clear();
 
-    uint16_t  pc = fromAddress;
+    uint32_t  pc = fromAddress;
 
     while (pc <= fromAddress + bytes)
     {
         DisassembledOpcode dop;
         char opcode[128];
-        uint32_t length = machine->z80Core.Debug_Disassemble(opcode, 128, pc, hexFormat, nullptr);
+        uint16_t length = machine->z80Core.Debug_Disassemble(opcode, 128, pc, hexFormat, nullptr);
 
         if (length == 0)
         {
@@ -205,7 +205,7 @@ size_t Debug::numberOfStackEntries()
 void Debug::stackTableUpdate()
 {
     m_stack.clear();
-    for (uint16_t i = machine->z80Core.GetRegister(CZ80Core::eREG_SP); i <= 0xfffe; i += 2)
+    for (uint32_t i = machine->z80Core.GetRegister(CZ80Core::eREG_SP); i <= 0xfffe; i += 2)
     {
         uint16_t value = static_cast<uint16_t>(machine->z80Core.Z80CoreDebugMemRead(i + 1, nullptr) << 8);
         value |= machine->z80Core.Z80CoreDebugMemRead(i, nullptr);

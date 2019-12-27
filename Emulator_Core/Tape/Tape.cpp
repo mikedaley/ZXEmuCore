@@ -244,7 +244,7 @@ bool Tape::loadWithPath(const char *path)
         tapeFile.read(reinterpret_cast<char*>(snapshotData.data()), snapshotData.size());
 
         resetAndClearBlocks(true);
-        if (processData(snapshotData.data(), snapshotData.size()))
+        if (processData(snapshotData.data(), static_cast<unsigned int>(snapshotData.size())))
         {
             success = true;
         }
