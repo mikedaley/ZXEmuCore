@@ -69,7 +69,7 @@ void ZXSpectrum::initialise(string romPath)
     resetMachine(true);
 }
 
-void ZXSpectrum::registerDebugOpCallback(DebugOpCallbackBlock debugOpCallbackBlock)
+void ZXSpectrum::registerDebugOpCallback(std::function<bool(uint16_t, uint8_t)> debugOpCallbackBlock)
 {
     this->debugOpCallbackBlock = debugOpCallbackBlock;
 }
@@ -252,7 +252,7 @@ void ZXSpectrum::emuReset()
 
 // - ROM Loading
 
-void ZXSpectrum::loadROM(const char *rom, uint page)
+void ZXSpectrum::loadROM(const char *rom, uint32_t page)
 {
     size_t romAddress = cROM_SIZE * page;
 

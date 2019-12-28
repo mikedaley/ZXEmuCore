@@ -28,9 +28,6 @@ using namespace std;
 
 // - Base ZXSpectrum class
 
-typedef void (*Z80DebugOpCallback)(uint16_t address, uint8_t operation, void *param);
-typedef bool (^DebugOpCallbackBlock)(uint16_t address, uint8_t operation);
-
 typedef enum {
     eULAPlusPaletteGroup = 0,
     eULAPlusModeGroup
@@ -146,15 +143,15 @@ public:
     
     void                    step();
     
-    void                    registerDebugOpCallback(DebugOpCallbackBlock debugOpCallbackBlock);
-    DebugOpCallbackBlock    debugOpCallbackBlock = nullptr;
+    void                    registerDebugOpCallback(std::function<bool(uint16_t, uint8_t)> debugOpCallbackBlock);
+    std::function<bool(uint16_t, uint8_t)>    debugOpCallbackBlock = nullptr;
     
     void                   *getScreenBuffer();
     uint32_t               getLastAudioBufferIndex() { return audioLastIndex; }
 
 protected:
     void                    emuReset();
-    void                    loadROM(const char *rom, uint page);
+    void                    loadROM(const char *rom, uint32_t page);
     
     void                    displayFrameReset();
     void                    displayUpdateWithTs(int32_t tStates);
